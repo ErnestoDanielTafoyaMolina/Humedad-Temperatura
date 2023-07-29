@@ -25,7 +25,7 @@
         android:layout_height="0dp"
         android:background="@drawable/ic_circular"
         android:indeterminate="false"
-        android:progress="28"
+        android:progress="68"
         android:max="100"
         android:progressDrawable="@drawable/ic_circular_progress_bar"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
@@ -44,12 +44,6 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         tools:ignore="UseCompoundDrawables">
 
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:contentDescription="@string/all"
-            app:srcCompat="@drawable/ic_humidity"
-            tools:ignore="VectorDrawableCompat" />
     </LinearLayout>
 
     <LinearLayout
@@ -80,7 +74,41 @@
             android:text="@string/title_humidity"
             android:textColor="@color/black_700"
             android:textSize="24sp" />
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_decr_hum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="84dp"
+        android:text="-10%"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_inc_hum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="80dp"
+        android:text="+10%"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:contentDescription="@string/all"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.423"
+        app:srcCompat="@drawable/ic_humidity"
+        tools:ignore="VectorDrawableCompat" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
