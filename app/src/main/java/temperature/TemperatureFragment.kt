@@ -7,12 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.a02tafoyaernestoidgs911ama23.R
+import com.example.a02tafoyaernestoidgs911ama23.SharedViewModel
+import com.example.a02tafoyaernestoidgs911ama23.databinding.FragmentTemperatureBinding
 
 class TemperatureFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = TemperatureFragment()
-    }
+    private var _binding: FragmentTemperatureBinding? = null
+
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
+
+//    companion object {
+//        fun newInstance() = TemperatureFragment()
+//    }
+
+    private lateinit var sharedViewModel: SharedViewModel
 
     private lateinit var viewModel: TemperatureViewModel
 
@@ -20,13 +30,40 @@ class TemperatureFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_temperature, container, false)
+        sharedViewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
+        _binding = FragmentTemperatureBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+
+        binding.btnIncTemp.setOnClickListener {
+            //sharedViewModel.setRealTem(binding.temperatureTextView.text.toString)
+
+            var prog = binding.temperatureProgressBar.progress
+            if(prog<=49){
+                prog++
+                updateProgressBar(prog)
+
+            }
+        }
+        binding.btnDecrTemp.setOnClickListener {
+            //sharedViewModel.setRealTem(binding.temperatureTextView.text.toString)
+            var prog = binding.temperatureProgressBar.progress
+            if(prog>=1){
+                prog--
+                updateProgressBar(prog)
+
+            }
+        }
+        return root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(TemperatureViewModel::class.java)
-        // TODO: Use the ViewModel
+    fun updateProgressBar(value:Int){
+        binding.temperatureProgressBar.progress = value
+        binding.temperatureTextView.text = "$value -C"
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }
