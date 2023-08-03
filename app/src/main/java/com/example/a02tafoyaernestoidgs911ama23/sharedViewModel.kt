@@ -1,24 +1,25 @@
 package com.example.a02tafoyaernestoidgs911ama23
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class SharedViewModel : ViewModel() {
-    private var realTemp: MutableLiveData<Float> = MutableLiveData()
-    private var realHum: MutableLiveData<Float> = MutableLiveData()
-    public fun setRealTem(value: Float) {
-        realTemp.value = value.toFloat()
+    private var mRealTemp: MutableLiveData<Int> = MutableLiveData()
+    private var mRealHum: MutableLiveData<Int> = MutableLiveData()
+    public fun setRealTem(value: Int) {
+        mRealTemp.value = value
     }
 
-    public fun getRealTem(): Float? {
-        return realTemp.value
+    public fun getRealTem(): LiveData<Int?> {
+        return mRealTemp
     }
-    public fun setRealHum(value: Float) {
-        realHum.value = value.toFloat()
+    public fun setRealHum(value: Int) {
+        mRealHum.value = value
     }
 
-    public fun getRealHum(): Float? {
-        return realHum.value
+    public fun getRealHum(): LiveData<Int?> {
+        return mRealHum
     }
 
 }

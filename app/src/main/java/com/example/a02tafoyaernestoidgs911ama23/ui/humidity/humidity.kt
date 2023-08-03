@@ -52,7 +52,7 @@ class humidity : Fragment() {
     }
     fun updateProgressBar(value:Int){
         binding.humidityProgressBar.progress = value
-        binding.humidityTextView.text = "$value &"
+        binding.humidityTextView.text = "$value %"
     }
 
 }

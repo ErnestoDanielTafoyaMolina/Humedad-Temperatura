@@ -2,6 +2,7 @@
     <string name="app_name">02TafoyaErnestoIDGS911AMA23</string>
     <string name="author_name">Ernesto Daniel Tafoya Molina</string>
     <string name="author_email">200222@utags.edu.mx</string>
+    <string name="temp_historial_title">TempHistorial</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
