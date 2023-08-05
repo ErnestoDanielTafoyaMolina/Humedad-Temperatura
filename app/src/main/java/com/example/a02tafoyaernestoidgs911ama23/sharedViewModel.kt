@@ -3,23 +3,38 @@ package com.example.a02tafoyaernestoidgs911ama23
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import java.text.DateFormat
+import java.util.Date
 
 class SharedViewModel : ViewModel() {
-    private var mRealTemp: MutableLiveData<Int> = MutableLiveData()
-    private var mRealHum: MutableLiveData<Int> = MutableLiveData()
-    public fun setRealTem(value: Int) {
-        mRealTemp.value = value
+    private val TAG = "SharedViewModel"
+    private val mTempReal = MutableLiveData<Int>().apply { value=0 }
+    private val mHumReal = MutableLiveData<Int>().apply { value=0 }
+    private var currentDateTime=MutableLiveData<String>().apply{value=
+        DateFormat.getDateTimeInstance().format(Date())}
+    private val mDataInPrint = MutableLiveData<String>().apply { value="" }
+    fun getmDataInPrint(): LiveData<String?>? {
+        return getmDataInPrint()
     }
-
-    public fun getRealTem(): LiveData<Int?> {
-        return mRealTemp
+    fun setmDataInPrint(dataInPrint: String) {
+        mDataInPrint.value = dataInPrint
     }
-    public fun setRealHum(value: Int) {
-        mRealHum.value = value
+    fun getTempReal(): LiveData<Int?> {
+        return mTempReal
     }
-
-    public fun getRealHum(): LiveData<Int?> {
-        return mRealHum
+    fun setTempReal(tempReal: Int) {
+        mTempReal.value = tempReal
     }
-
+    fun setCurrentDayTime(currentDayTime: String) {
+        currentDateTime.value = currentDayTime
+    }
+    fun getHumReal(): LiveData<Int?> {
+        return mHumReal
+    }
+    fun setHumReal(tempReal: Int) {
+        mHumReal.value = tempReal
+    }
+    fun getCurrentDayTime(): LiveData<String?> {
+        return currentDateTime
+    }
 }

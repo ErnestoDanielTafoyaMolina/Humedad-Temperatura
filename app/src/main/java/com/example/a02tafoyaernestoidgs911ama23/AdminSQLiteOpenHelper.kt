@@ -10,15 +10,14 @@ class AdminSQLiteOpenHelper(
     context:Context?,
     name:String?,
     factory:CursorFactory?,
-    version:Int,
-    errorHandler: DatabaseErrorHandler
-): SQLiteOpenHelper(context, name, factory, version, errorHandler) {
+    version:Int
+): SQLiteOpenHelper(context, name, factory, version) {
     override fun onCreate(BasedeDatos: SQLiteDatabase?) {
-        BasedeDatos?.execSQL("CREATE TABLE temperature(id integer primary key autoincrement, value integer, d_t date_time )")
+        BasedeDatos?.execSQL("CREATE TABLE sensores(lectura integer primary key autoincrement not null, temperatura integer,humedad integer, fecha_hora date_time )")
     }
 
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
-        TODO("Not yet implemented")
+
     }
 
 }
