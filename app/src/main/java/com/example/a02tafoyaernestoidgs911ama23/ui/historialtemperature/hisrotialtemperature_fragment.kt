@@ -30,19 +30,20 @@ class hisrotialtemperature_fragment : Fragment() {
     private val colors = intArrayOf(Color.BLACK,Color.RED,Color.GREEN, Color.BLUE, Color.LTGRAY)
     private var _binding: HisrotialtemperatureFragmentBinding?=null
     private val binding get() = _binding!!
-    private lateinit var viewModel: HisrotialtemperatureFragmentViewModel
+    //private lateinit var viewModel: HisrotialtemperatureFragmentViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
-        viewModel = ViewModelProvider(this).get(HisrotialtemperatureFragmentViewModel::class.java)
-        _binding = HisrotialtemperatureFragmentBinding.inflate(inflater,container,false)
-        val root:View=binding.root
-        lineChart=binding.lineChart
+        sharedViewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
+        //viewModel = ViewModelProvider(this).get(HisrotialtemperatureFragmentViewModel::class.java)
+        _binding = HisrotialtemperatureFragmentBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+        lineChart= binding.lineChart
         createCharts()
-        return inflater.inflate(R.layout.hisrotialtemperature_fragment, container, false)
+        return root
+
     }
     override fun onDestroyView() {
         super.onDestroyView()

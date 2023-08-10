@@ -28,5 +28,9 @@
             android:id="@+id/nav_humidity"
             android:icon="@drawable/ic_humidity"
             android:title="@string/title_humidity" />
+        <item
+            android:id="@+id/nav_dispositivos_vincuados_fragment"
+            android:icon="@android:drawable/stat_sys_data_bluetooth"
+            android:title="Bounded_devices" />
     </group>
 </menu>

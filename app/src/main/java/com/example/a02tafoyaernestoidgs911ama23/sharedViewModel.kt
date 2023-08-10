@@ -7,6 +7,7 @@ import java.text.DateFormat
 import java.util.Date
 
 class SharedViewModel : ViewModel() {
+    private val address = MutableLiveData<String>().apply { value="B8:D6:1A:5D:E9:5A" }
     private val TAG = "SharedViewModel"
     private val mTempReal = MutableLiveData<Int>().apply { value=0 }
     private val mHumReal = MutableLiveData<Int>().apply { value=0 }
@@ -36,5 +37,11 @@ class SharedViewModel : ViewModel() {
     }
     fun getCurrentDayTime(): LiveData<String?> {
         return currentDateTime
+    }
+    fun getAddress(): LiveData<String?>? {
+        return address
+    }
+    fun setAddress(addressV: String) {
+        address.value = addressV
     }
 }

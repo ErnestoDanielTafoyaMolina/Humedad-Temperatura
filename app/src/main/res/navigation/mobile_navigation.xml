@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/nav_dispositivos_vincuados_fragment">
 
     <fragment
         android:id="@+id/nav_home"
@@ -37,4 +37,9 @@
         android:name="com.example.a02tafoyaernestoidgs911ama23.ui.historialtemperature.hisrotialtemperature_fragment"
         android:label="@string/temp_historial_title"
         tools:layout="@layout/hisrotialtemperature_fragment" />
+    <fragment
+        android:id="@+id/nav_dispositivos_vincuados_fragment"
+        android:name="com.example.a02tafoyaernestoidgs911ama23.ui.DispositivosVinculados.DispositivosVinculadosFragment"
+        android:label="Bonded_devices"
+        tools:layout="@layout/fragment_dispositivos_vinculados" />
 </navigation>
